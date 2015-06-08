@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Login</title>
+         <h:outputStylesheet name="style.css" library="css"/>
+    </h:head>
+    <h:body>
+        
+        
+        <h:form styleClass="form">
+            <h:panelGroup>
+            
+            <h:panelGrid columns="1" styleClass="login">
+                <f:facet name="header">
+                    <h2 class="h2">Please enter your login details.</h2>
+                    
+                </f:facet>
+                <h:column>
+                <h:inputText p:placeholder="Username" styleClass="logininput" maxlength="30" required="true" id="usernameInputText"
+                             requiredMessage="You must enter a valid username"
+                             validatorMessage="Invalid username entered"
+                             value="#{loginBean.username}">
+                    <f:validateLength maximum="30" />
+                    
+                </h:inputText>
+              
+                <h:message for="usernameInputText" styleClass="error"/>
+                  </h:column>
+                <h:column>
+                <h:inputSecret p:placeholder="Password" styleClass="logininput" maxlength="12" required="true" id="passwordInputText"
+                             requiredMessage="You must enter a password"
+                             validatorMessage="Invalid password entered"
+                             value="#{loginBean.password}">
+                    <f:validateLength maximum="12"/>
+                </h:inputSecret>
+                <h:message for="passwordInputText" styleClass="error"/>
+                </h:column>
+               
+                <h:commandButton  class="btn   btn-large" value="Submit" action="#{loginBean.checkValidUser()}" />
+               
+            </h:panelGrid>
+            </h:panelGroup>
+        </h:form>
+
+    </h:body>
+</html>
+
